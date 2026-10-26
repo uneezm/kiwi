@@ -1,0 +1,632 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    padding: 50px;
+}
+#title {
+    opacity: 0;
+    transition: 0.2s;
+}
+#title.show {
+    opacity: 1;
+    transition: 0.2s;
+}
+section {
+    background: white;
+    padding: 15px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+h2 {
+    padding-left: 10px;
+}
+.rows {
+    margin-top: 5%;
+    opacity: 0;
+    transition: opacity 0.6s, margin-top 0.9s;
+}
+.rows.show {
+    margin-top: 0px;
+    opacity: 1;
+    transition: opacity 0.6s, margin-top 0.9s;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+.sections {
+    display: grid;
+    gap: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+    grid-template-columns: repeat(2,1fr);
+
+}
+hr {
+    border: 1px solid black;
+}
+label {
+    display: block;
+    margin: 5px 0;
+}
+textarea {
+    font-size: large;
+}
+input {
+    margin: 0 5px;
+}
+input[type="radio"] {
+    appearance: none;
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
+    border: 0.2em solid;
+}
+input[type="checkbox"] {
+    appearance: none;
+    width: 1em;
+    height: 1em;
+    border-radius: 0.3em;
+    border: 0.2em solid;
+}
+.buttons {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.savebutton {
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 20px;
+    padding: 12px 20px;
+    transition: 0.2s;
+    
+}
+.savebutton:hover {
+    background: #219150;
+    transition: 0.2s;
+}
+.resetbutton {
+    background: #f8f8f8;
+    color: rgb(139, 139, 139);
+    border: 2px solid rgb(139, 139, 139);
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 20px;
+    padding: 12px 20px;
+    transition: 0.2s;
+}
+.resetbutton:hover {
+    background: rgb(139, 139, 139);
+    color: white;
+    transition: 0.2s;
+}
+
+.checkbutton {
+    background: #2783ae;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 20px;
+    padding: 12px 20px;
+    transition: 0.2s;
+}
+.checkbutton:hover {
+    background: #215b91;
+    transition: 0.2s;
+}
+.hidden {
+    display: none;
+}
+.radio-group {
+    margin: auto;
+}
+.decide {
+    padding: 5px;
+}
+.startpoint {
+    border-left: 5px solid #858585;
+    transition: 0.2s;
+}
+.rows:hover .startpoint {
+    border-left: 5px solid #535353;
+    transition: 0.2s;
+}
+.details {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.personaldetails {
+    display: grid;
+}
+.personaldetails label {
+    margin: 5px;
+}
+.personaldetails input {
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+.personaldetails input:hover {
+    background-color: darkgray;
+    border: 2px solid rgb(83, 83, 83);
+    transition: 0.2s;
+}
+
+.firststep {
+    border-left: 5px solid #3498db;
+    transition: 0.2s;
+}
+.rows:hover .firststep {
+    border-left: 5px solid #21618b;
+    transition: 0.2s;
+}
+.firstcard {
+    border: 4px solid #3498db;
+    border-radius: 14px;
+    padding: 10px;
+    transition: 0.2s;
+    display: grid;
+    grid-template-rows: 50px auto 1fr;
+}
+.firstsubject {
+    display: flex;
+    align-items: center;
+}
+.firstcard:hover {
+    border: 4px solid #21618b;
+    transition: 0.2s;
+}
+.firstcard h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.firstcard hr {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px 0 10px;
+}
+.firstcard input[type="radio"] {
+    border-color: #3498db;
+    transition: 0.2s;
+}
+.firstcard input[type="radio"]:hover {
+    border-color: #21618b;
+    transition: 0.2s;
+}
+.firstcard input[type="radio"]:checked {
+    background-color: #3498db;
+    transition: 0.2s;
+}
+.firstcard input[type="radio"]:checked:hover {
+    background-color: #21618b;
+    transition: 0.2s;
+}
+.secondstep {
+    border-left: 5px solid #0fb300;
+    transition: 0.2s;
+}
+.rows:hover .secondstep {
+    border-left: 5px solid #096d00;
+    transition: 0.2s;
+}
+.secondcard {
+    border: 4px solid #0fb300;
+    border-radius: 14px;
+    padding: 10px;
+    transition: 0.2s;
+}
+.secondcard:hover {
+    border: 4px solid #096d00;
+    transition: 0.2s;
+}
+.secondcard input[type="radio"] {
+    border-color: #0fb300;
+    transition: 0.2s;
+}
+.secondcard input[type="radio"]:hover {
+    border-color: #096d00;
+    transition: 0.2s;
+}
+.secondcard input[type="radio"]:checked {
+    background-color: #0fb300;
+    transition: 0.2s;
+}
+.secondcard input[type="radio"]:checked:hover {
+    background-color: #096d00;
+    transition: 0.2s;
+}
+.secondcard input[type="checkbox"] {
+    border-color: #0fb300;
+    transition: 0.2s;
+}
+.secondcard input[type="checkbox"]:hover {
+    border-color: #096d00;
+    transition: 0.2s;
+}
+.secondcard input[type="checkbox"]:checked {
+    background-color: #0fb300;
+    transition: 0.2s;
+}
+.secondcard input[type="checkbox"]:checked:hover {
+    background-color: #096d00;
+    transition: 0.2s;
+}
+.thirdstep {
+    border-left: 5px solid #0012b4;
+    transition: 0.2s;
+}
+.rows:hover .thirdstep {
+    border-left: 5px solid #000d7e;
+    transition: 0.2s;
+}
+.thirdcard {
+    border: 4px solid #0012b4;
+    border-radius: 14px;
+    padding: 10px;
+    transition: 0.2s;
+}
+.thirdsubject {
+    align-items: center;
+}
+.thirdcard:hover {
+    border: 4px solid #000d7e;
+    transition: 0.2s;
+}
+.thirdcard h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.thirdcard input[type="radio"] {
+    border-color: #0012b4;
+    transition: 0.2s;
+}
+.thirdcard input[type="radio"]:hover {
+    border-color: #000d7e;
+    transition: 0.2s;
+}
+.thirdcard input[type="radio"]:checked {
+    background-color: #0012b4;
+    transition: 0.2s;
+}
+.thirdcard input[type="radio"]:checked:hover {
+    background-color: #000d7e;
+    transition: 0.2s;
+}
+.fourthstep {
+    border-left: 5px solid #db9600;
+    transition: 0.2s;
+}
+.rows:hover .fourthstep {
+    border-left: 5px solid #8a5e00;
+    transition: 0.2s;
+}
+.fourthcard {
+    border: 4px solid #db9600;
+    border-radius: 14px;
+    padding: 10px;
+    transition: 0.2s;
+}
+.fourthsubject {
+    align-items: center;
+}
+.fourthcard:hover {
+    border: 4px solid #8a5e00;
+    transition: 0.2s;
+}
+.fourthcard ul {
+    list-style-position: outside;
+}
+.fourthcard li {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.fourthcard h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.choice {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #db9600;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+.choice:hover {
+    background-color: #8a5e00;
+    transition: 0.2s;
+}
+.choice input[type="radio"] {
+    width: 2.5em;
+    border-color: white;
+    background-color: white;
+    transition: 0.2s;
+}
+.choice input[type="radio"]:hover {
+    background-color: #ffd67e;
+    transition: 0.2s;
+}
+.choice input[type="radio"]:checked {
+    background-color: #db9600;
+    transition: 0.2s;
+}
+.choice input[type="radio"]:checked:hover {
+    background-color: #8a5e00;
+    transition: 0.2s;
+}
+.goal {
+    margin: 0;
+}
+.fourthnote {
+    background-color: #db9600;
+    font-weight: bold;
+    color: white;
+    border-radius: 14px;
+    margin-top: 15px;
+    padding: 15px;
+    display: flex;
+    transition: 0.2s;
+}
+.fourthnote textarea {
+    border-radius: 5px;
+    margin-left: 15px;
+    resize: vertical;
+    width: 100%;
+    min-height: 23px;
+    field-sizing: content;
+    transition: 0.2s;
+}
+.fourthnote textarea:hover {
+    background-color: darkgray;
+    transition: 0.2s;
+}
+.fifthstep {
+    border-left: 5px solid #00bbb2;
+    transition: 0.2s;
+}
+.rows:hover .fifthstep {
+    border-left: 5px solid #007771;
+    transition: 0.2s;
+}
+.fifthcard {
+    border: 4px solid #00bbb2;
+    border-radius: 14px;
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 50px auto 1fr;
+    transition: 0.2s;
+}
+.fifthsubject {
+    display: flex;
+    align-items: center;
+}
+.fifthcard:hover {
+    border: 4px solid #007771;
+    transition: 0.2s;
+}
+.fifthcard h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.fifthcard hr {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px 0 10px;
+}
+.fifthnote {
+    background-color: #00bbb2;
+    font-weight: bold;
+    color: white;
+    border-radius: 14px;
+    margin-top: 15px;
+    padding: 15px;
+    display: flex;
+}
+.fifthnote textarea {
+    border-radius: 5px;
+    margin-left: 15px;
+    resize: vertical;
+    width: 100%;
+    min-height: 23px;
+    field-sizing: content;
+    transition: 0.2s;
+}
+.fifthnote textarea:hover {
+    background-color: darkgray;
+    transition: 0.2s;
+}
+.fifthcard input[type="radio"] {
+    border-color: #00bbb2;
+    transition: 0.2s;
+}
+.fifthcard input[type="radio"]:hover {
+    border-color: #007771;
+    transition: 0.2s;
+}
+.fifthcard input[type="radio"]:checked {
+    background-color: #00bbb2;
+    transition: 0.2s;
+}
+.fifthcard input[type="radio"]:checked:hover {
+    background-color: #007771;
+    transition: 0.2s;
+}
+.mistakes {
+    background-color: rgb(255, 225, 225);
+    border: 4px solid #ff7272;
+    border-radius: 14px;
+    padding: 10px;
+    transition: 0.2s;
+}
+.mistakes:hover {
+    background-color: rgb(255, 182, 182);
+    border: 4px solid #ff4545;
+    transition: 0.2s;
+}
+.mistakes h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.happenings {
+   padding: 10px;
+   list-style-position: outside;
+}
+.happenings li {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.goldenrule {
+    background-color: #fff8d9;
+    border: 4px solid #e7bd01;
+    border-radius: 14px;
+    padding: 10px;
+    transition: 0.2s;
+}
+.goldenrule:hover {
+    background-color: #fff0af;
+    border: 4px solid #a78800;
+    transition: 0.2s;
+}
+.goldenrule h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.goldenrule li {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.explanations {
+    padding: 1px;
+}
+.explanations h3 {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.credits {
+    text-align: center;
+    margin: auto;
+}
+.credits hr {
+    width: 50%;
+}
+@media only screen and (max-width: 1597px) {
+    .grid {
+        display: block;
+        gap: 15px;
+    }
+    
+    .firstcard, .thirdcard, .fourthcard, .fifthcard {
+        margin-top: 15px;
+    }
+    .credits hr {
+        width: 75%;
+    }
+    .happenings {
+        padding: 15px;
+    }
+    .happenings ul{
+        margin-top: 15px;
+        margin-right: 50px;
+    }
+    .happenings li {
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+}
+
+@media only screen and (max-width: 895px)  {
+    section {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .sections {
+        display: block;
+    }
+    .mistakes, .goldenrule {
+        margin-top: 15px;
+    }
+    .details {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .happenings ul{
+        margin-top: 20px;
+        margin-right: 0px;
+    }
+    .happenings li {
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+    .goldenrule li {
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+}
+@media only screen and (max-width: 690px) {
+    .buttons {
+        display: grid;
+    }
+    
+}
+@media only screen and (max-width: 625px) {
+    section {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    label {
+        display: block;
+        text-align: left;
+    }
+    input[type="radio"] {
+        width: 2.5em;
+        height: 1.5em;
+        border-radius: 1em;
+        border: 0.25em solid;
+    }
+    input[type="checkbox"] {
+        width: 2.5em;
+        height: 1.5em;
+        border-radius: 0.3em;
+        border: 0.25em solid;
+    }
+    .details {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .grid {
+        display: block;
+        gap: 15px;
+    }
+    .sections {
+        margin-left: 0%;
+        margin-right: 0%;
+        display: block;
+        gap: 15px;
+    }
+    .firstcard, .thirdcard, .fourthcard, .fifthcard {
+        margin-top: 15px;
+    }
+}
