@@ -1,0 +1,73 @@
+
+Funkciók leírása:
+
+Külső webfelület
+  Frontend 
+   - személyes adatok, elérhetőség, visszatérő páciens e?
+   - kívánt szolgáltatás, sürgősség, megjegyzés
+   - megfelelő időpontok, napszakok megadása
+   - dokumentumok feltöltése, egyéb megjegyzések
+   - felhasználó oldali validálás, visszajelzés az elküldés sikerességéről
+
+   Backend - API
+   - validálja az adatokat,visszajelzést küld a kliens felület felé
+   - ha megfelelt, akkor megfelelő formában egy ideiglenes tárolási helyre teszi, majd értesítést küld az adminisztrációs felület felé
+
+Belső adminisztrációs felület
+   Frontend
+   - felület a bejött adatok közötti szűrésre, rendszerbe vitelére és az ideiglenes tárból való törlésre
+   - adatbázisban lévő időpontok kezelése
+   - több fajta szűrési lehetőség az időpontok között
+  
+   Backend
+     - időpontok tárolására tábla(k)
+     -API az adatbázissal való kommunikációra
+
+
+Részletesebben
+
+Webfelület:
+ * - kötelező megadni
+
+  - Teljes név *
+  - Szül. dátum *
+  - szül. hely* 
+  - szül. év *
+  - anyja neve*
+  -lakhely
+  - tartózk. hely
+  -TAJ szám* 
+  -adószám  
+  
+  -visszatérő páciens e?
+  - választható szolgáltatások lista*
+  - sürgős eset e*
+  - ha igen akkor rövid megjegyzés
+  -megfelelő időszakok,időpontok megadása
+
+  - dokumentumok feltöltésére való felület
+
+ beküldés gomb  -> elkülkdés a webszervernek -> validálás -> visszajelzés
+
+Belső kezelői felület
+  Adatbázis: -páciens azonosítója
+             -időpont
+             -szolgáltatás
+             -orvos
+             -sürgősség?
+
+ Adminisztrációs webfelület:
+   - felh. bejelentkezés,azonosítás
+   - Új adatok közötti válogatás
+   - adatbázisba való feltöltési felület automatikus kitöltése, szerkeszthető
+   - adatbázisból való lekérdezés,szűrések
+
+  - megvalósítandó API
+  - funkciói legyenek változtatható paraméterezésűek a létező adatbázissal való összeköttetés érdekében
+  - tesztelés dummy adatbázissal
+
+
+
+
+
+

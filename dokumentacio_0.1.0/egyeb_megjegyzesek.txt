@@ -1,0 +1,28 @@
+projekt mappa
+verzio jelölések
+1.x.x - első kiadott verzió
+0.1.0 - legelső elképzelés
+0.1.1 - relatív apró finomítás
+0.2.0 - jelentősebb változás az első verzióhoz képest
+
+projekt/
+         README.txt
+         rendszerterv.txt
+         funcionalis_specifikacio.txt
+         bugriport.txt
+         tesztdokumentacio.txt
+         idopont_x.x.x/
+                       kerdőiv/
+                                php/
+                                css/
+                                js/
+                               
+
+                       adminisztracio/
+                                        php/
+                                        css/
+                                        js/
+                                        sql/
+                       
+         
+          

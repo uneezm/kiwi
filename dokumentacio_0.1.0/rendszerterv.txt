@@ -1,0 +1,25 @@
+Projekt célja: Egy magánklinika online időpontkérő és az azt kezelő rendszerének a megvalósítása.
+ A teljes kórházi külső/belső felület elkészítése nem tartozik a feladathoz csak az időpontokat menedzselő része. Ebbe beletartozik a külső/belső frontend,API, és az időpontok táblája. A páciensek adatait, a felhasználókat,jelszavakat,doktorokat kezelő táblák adottnak tekinthetők. A teszteléshez egy dummy adatbázis használható. 
+
+ 
+ A projekt fő részei: 
+ - Külső felület
+    Időpontkérő és adategyeztető webes kérdőív felület(frontend) és adatokat validáló és továbbküldéséért felelős API(backend).
+ - Belső felület
+    Az adatok nem kerülnek automatikusan a rendszerbe, azok egy ideiglenes helyen tárolódnak. Egy kezelői webes felületről(frontend) a felhasználó bejelentkezés után kezelheti a számára hozzáférhető adatokat.
+     A bejelentkezés, és a felület-adatbázis kommunikációja egy  API-n keresztül történik.
+  -Adatbázis
+     páciens azonosító,Időpont, szolgáltatás,doktor, stb.
+
+
+Technológiák:
+  frontend:
+     - html5,css3, javascript vagy választott keresztrendszer pl.: bootstrap
+  backend: xampp 8.2 vagy ennek megfelelő környezet (MariaDB 10.4, Apache 2.4, PHP 8.2, PHPMyAdmin 5.2)
+
+
+
+
+     
+
+ 
