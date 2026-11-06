@@ -1,1 +1,368 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');:root{font-family:'DM Sans',system-ui,sans-serif;color:#17334a;background:#f4f8fa}*{box-sizing:border-box}body{margin:0}a{color:#087b86}header{background:white;border-bottom:1px solid #dae7ea;padding:20px max(24px,calc((100vw - 1080px)/2));display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{font-size:21px;font-weight:700;color:#126777;text-decoration:none}.brand span{color:#2ba6a2}.shell{max-width:1080px;margin:40px auto;padding:0 22px}.hero{background:linear-gradient(120deg,#e4f5f3,#f5fafc);border-radius:22px;padding:36px;margin-bottom:24px}h1{font-size:clamp(28px,4vw,42px);margin:0 0 12px}h2{font-size:22px;margin:0 0 16px}h3{margin:0 0 10px}p{line-height:1.6;color:#526a78}.card{background:white;border:1px solid #e1e9ec;border-radius:18px;padding:28px;margin:20px 0;box-shadow:0 4px 18px #193a4810}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.full{grid-column:1/-1}label{display:block;font-weight:600;font-size:14px;margin-bottom:7px}input:not([type=radio]):not([type=checkbox]),select,textarea{width:100%;padding:12px 14px;border:1px solid #c8d8df;border-radius:9px;background:#fff;font:inherit;color:#17334a}textarea{min-height:100px}input:focus,select:focus,textarea:focus{outline:2px solid #51aeb4;outline-offset:1px}.choices{display:flex;gap:18px;flex-wrap:wrap;padding:9px 0}.choices label{font-weight:400;display:flex;align-items:center;gap:7px}.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:24px}.btn{border:0;border-radius:10px;padding:13px 20px;background:#117f89;color:white;cursor:pointer;font:inherit;font-weight:700;text-decoration:none;display:inline-block}.btn.secondary{background:#e5f0f2;color:#165c68}.btn:disabled{opacity:.55;cursor:not-allowed}.notice{border-radius:10px;background:#eaf5f4;padding:14px;color:#225963}.error{color:#a52c37;font-size:13px;margin-top:5px}.muted{color:#667e8b;font-size:13px}.hide{display:none!important}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.stat{background:#f1f8f8;padding:22px;border-radius:14px}.stat strong{display:block;font-size:30px}.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:15px 0}.toolbar>*{flex:1;min-width:160px}table{border-collapse:collapse;width:100%}th,td{padding:13px;text-align:left;border-bottom:1px solid #e4ecee;font-size:14px}th{color:#55717d}.tablewrap{overflow-x:auto}.tag{display:inline-block;background:#e5f2f1;color:#17636d;border-radius:20px;padding:5px 10px;font-size:12px}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs button{background:#e8f2f4;border:0;padding:11px 15px;border-radius:9px;cursor:pointer;color:#20586a}.tabs button.active{background:#117f89;color:white}footer{padding:30px;text-align:center;color:#68818b}@media(max-width:650px){header{padding:16px;flex-wrap:wrap}.shell{margin:22px auto;padding:0 14px}.hero{padding:24px}.card{padding:20px}.grid,.stats{grid-template-columns:1fr}.full{grid-column:auto}}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/* ========================================
+   1. Alapbeállítások
+======================================== */
+
+:root {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #17334a;
+    background: #f4f8fa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    color: #087b86;
+}
+
+/* ========================================
+   2. Fejléc
+======================================== */
+
+header {
+    background: white;
+    border-bottom: 1px solid #dae7ea;
+    padding: 20px max(24px, calc((100vw - 1080px) / 2));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand {
+    font-size: 21px;
+    font-weight: 700;
+    color: #126777;
+    text-decoration: none;
+}
+
+.brand span {
+    color: #2ba6a2;
+}
+
+/* ========================================
+   3. Fő tartalom
+======================================== */
+
+.shell {
+    max-width: 1080px;
+    margin: 40px auto;
+    padding: 0 22px;
+}
+
+.hero {
+    background: linear-gradient(120deg, #e4f5f3, #f5fafc);
+    border-radius: 22px;
+    padding: 36px;
+    margin-bottom: 24px;
+}
+
+/* ========================================
+   4. Szövegek és címsorok
+======================================== */
+
+h1 {
+    font-size: clamp(28px, 4vw, 42px);
+    margin: 0 0 12px;
+}
+
+h2 {
+    font-size: 22px;
+    margin: 0 0 16px;
+}
+
+h3 {
+    margin: 0 0 10px;
+}
+
+p {
+    line-height: 1.6;
+    color: #526a78;
+}
+
+/* ========================================
+   5. Kártyák és elrendezés
+======================================== */
+
+.card {
+    background: white;
+    border: 1px solid #e1e9ec;
+    border-radius: 18px;
+    padding: 28px;
+    margin: 20px 0;
+    box-shadow: 0 4px 18px #193a4810;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+/* ========================================
+   6. Űrlapmezők
+======================================== */
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+input:not([type=radio]):not([type=checkbox]),
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #c8d8df;
+    border-radius: 9px;
+    background: #fff;
+    font: inherit;
+    color: #17334a;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #51aeb4;
+    outline-offset: 1px;
+}
+
+/* ========================================
+   7. Rádiógombok és jelölőnégyzetek
+======================================== */
+
+.choices {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 9px 0;
+}
+
+.choices label {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+/* ========================================
+   8. Gombok
+======================================== */
+
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.btn {
+    border: 0;
+    border-radius: 10px;
+    padding: 13px 20px;
+    background: #117f89;
+    color: white;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn.secondary {
+    background: #e5f0f2;
+    color: #165c68;
+}
+
+.btn:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+}
+
+/* ========================================
+   9. Üzenetek és segédosztályok
+======================================== */
+
+.notice {
+    border-radius: 10px;
+    background: #eaf5f4;
+    padding: 14px;
+    color: #225963;
+}
+
+.error {
+    color: #a52c37;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.muted {
+    color: #667e8b;
+    font-size: 13px;
+}
+
+.hide {
+    display: none !important;
+}
+
+/* ========================================
+   10. Adminfelület – statisztikák
+======================================== */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.stat {
+    background: #f1f8f8;
+    padding: 22px;
+    border-radius: 14px;
+}
+
+.stat strong {
+    display: block;
+    font-size: 30px;
+}
+
+/* ========================================
+   11. Adminfelület – keresés és szűrés
+======================================== */
+
+.toolbar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+
+.toolbar > * {
+    flex: 1;
+    min-width: 160px;
+}
+
+/* ========================================
+   12. Táblázatok
+======================================== */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 13px;
+    text-align: left;
+    border-bottom: 1px solid #e4ecee;
+    font-size: 14px;
+}
+
+th {
+    color: #55717d;
+}
+
+.tablewrap {
+    overflow-x: auto;
+}
+
+/* ========================================
+   13. Címkék
+======================================== */
+
+.tag {
+    display: inline-block;
+    background: #e5f2f1;
+    color: #17636d;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+/* ========================================
+   14. Adminisztrációs fülek
+======================================== */
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tabs button {
+    background: #e8f2f4;
+    border: 0;
+    padding: 11px 15px;
+    border-radius: 9px;
+    cursor: pointer;
+    color: #20586a;
+}
+
+.tabs button.active {
+    background: #117f89;
+    color: white;
+}
+
+/* ========================================
+   15. Lábléc
+======================================== */
+
+footer {
+    padding: 30px;
+    text-align: center;
+    color: #68818b;
+}
+
+/* ========================================
+   16. Reszponzív megjelenés – mobil
+======================================== */
+
+@media (max-width: 650px) {
+
+    header {
+        padding: 16px;
+        flex-wrap: wrap;
+    }
+
+    .shell {
+        margin: 22px auto;
+        padding: 0 14px;
+    }
+
+    .hero {
+        padding: 24px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .grid,
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+}
