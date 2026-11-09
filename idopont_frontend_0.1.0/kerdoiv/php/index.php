@@ -51,8 +51,11 @@
         <!-- ========================================
              3. Betegfelvételi űrlap
         ======================================== -->
-
-        <form id="patientForm" novalidate>
+<?php 
+include("test_config.php");
+?>
+     
+        <form id="patientForm" name="patientForm" action="confirmation.php" method="post" target="_blank" autocomplete="off" novalidate>
 
             <!-- ========================================
                  4. Személyes adatok
@@ -73,6 +76,7 @@
                             required
                             maxlength="100"
                             autocomplete="name"
+                            <?php echo "value=\"$fullName_d\"";?>
                         >
                     </div>
 
@@ -84,6 +88,7 @@
                             name="motherName"
                             required
                             maxlength="100"
+                            <?php echo "value=\"$motherName_d\"";?>
                         >
                     </div>
 
@@ -95,6 +100,7 @@
                             id="birthDate"
                             name="birthDate"
                             required
+                            <?php echo "value=\"$birthDate_d\"";?>
                         >
                     </div>
 
@@ -105,6 +111,7 @@
                             id="birthPlace"
                             name="birthPlace"
                             required
+                            <?php echo "value=\"$birthPlace_d\"";?>
                         >
                     </div>
 
@@ -119,6 +126,7 @@
                             pattern="[0-9]{9}"
                             required
                             placeholder="9 számjegy"
+                            <?php echo "value=\"$taj_d\"";?>
                         >
                     </div>
 
@@ -131,6 +139,7 @@
                             name="email"
                             required
                             autocomplete="email"
+                            <?php echo "value=\"$email_d\"";?>
                         >
                     </div>
 
@@ -143,6 +152,7 @@
                             name="phone"
                             required
                             placeholder="+36 30 123 4567"
+                            <?php echo "value=\"$phone_d\"";?>
                         >
                     </div>
 
@@ -153,6 +163,7 @@
                             id="address"
                             name="address"
                             autocomplete="street-address"
+                            <?php echo " value=\"$address_d\""; ?>
                         >
                     </div>
 
@@ -164,6 +175,7 @@
                         <input
                             id="temporaryAddress"
                             name="temporaryAddress"
+                            <?php echo " value=\"$temporaryAddress_d\"";?>
                         >
                     </div>
 
@@ -177,6 +189,7 @@
                             name="taxNumber"
                             inputmode="numeric"
                             maxlength="10"
+                            <?php echo " value=\"$taxNumber_d\"";?>
                         >
                     </div>
 
@@ -192,6 +205,7 @@
                                     type="radio"
                                     name="returning"
                                     value="yes"
+                                  <?php if ($returning_d== "yes") { echo " checked";}?>
                                 >
                                 Igen
                             </label>
@@ -201,7 +215,8 @@
                                     type="radio"
                                     name="returning"
                                     value="no"
-                                    checked
+                                     <?php if ($returning_d== "no") { echo " checked";}?>
+                                    
                                 >
                                 Nem
                             </label>
@@ -235,12 +250,12 @@
                             name="service"
                             required
                         >
-                            <option value="">Válasszon...</option>
-                            <option>Állapotfelmérés</option>
-                            <option>Fogászati konzultáció</option>
-                            <option>Röntgen</option>
-                            <option>Fogtömés</option>
-                            <option>Egyéb</option>
+                            <option value="empty">Válasszon...</option>
+                            <option value="allapotfelmeres" checked>Állapotfelmérés</option>
+                            <option value="konzultacio" selected>Fogászati konzultáció</option>
+                            <option value="rontgen">Röntgen</option>
+                            <option value="fogtomes">Fogtömés</option>
+                            <option value="egyeb">Egyéb</option>
                         </select>
                     </div>
 
@@ -259,6 +274,7 @@
                                     name="urgent"
                                     value="yes"
                                     required
+                                      <?php if ($urgent_d== "yes") { echo " checked";}?>
                                 >
                                 Igen
                             </label>
@@ -268,6 +284,7 @@
                                     type="radio"
                                     name="urgent"
                                     value="no"
+                                    <?php if ($urgent_d== "no") { echo " checked";}?>
                                 >
                                 Nem
                             </label>
@@ -290,7 +307,7 @@
                             id="urgentDetail"
                             name="urgentDetail"
                             maxlength="500"
-                        ></textarea>
+                        ><?php echo "$urgentDetail_d"; ?></textarea>
 
                         <p class="muted">
                             A sürgősségi megjelölés nem jelent
@@ -311,7 +328,8 @@
                             name="reason"
                             required
                             maxlength="1500"
-                        ></textarea>
+                        >
+                    <?php echo "$reason_d"; ?></textarea>
 
                     </div>
 
@@ -327,6 +345,7 @@
                                     type="checkbox"
                                     name="times"
                                     value="morning"
+                                    checked
                                 >
                                 Délelőtt
                             </label>
@@ -364,7 +383,7 @@
                             id="availability"
                             name="availability"
                             placeholder="Például: hétfő és szerda megfelelő"
-                        ></textarea>
+                        ><?php echo "$availability_d" ?></textarea>
 
                     </div>
 
