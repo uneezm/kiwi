@@ -55,7 +55,7 @@
 include("test_config.php");
 ?>
      
-        <form id="patientForm" name="patientForm" action="./confirmation.php" method="post" target="_blank" autocomplete="off" novalidate>
+        <form id="patientForm" name="patientForm" action="./validation.php" method="post" target="_blank" autocomplete="off" novalidate>
 
             <!-- ========================================
                  4. Személyes adatok
