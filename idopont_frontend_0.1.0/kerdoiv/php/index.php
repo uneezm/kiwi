@@ -55,7 +55,7 @@
 include("test_config.php");
 ?>
      
-        <form id="patientForm" name="patientForm" action="confirmation.php" method="post" target="_blank" autocomplete="off" novalidate>
+        <form id="patientForm" name="patientForm" action="./confirmation.php" method="post" target="_blank" autocomplete="off" novalidate>
 
             <!-- ========================================
                  4. Személyes adatok
@@ -556,7 +556,7 @@ include("test_config.php");
                         <textarea
                             id="notes"
                             name="notes"
-                        ></textarea>
+                        ><?php echo "$notes_d" ?></textarea>
 
                     </div>
 
@@ -660,8 +660,8 @@ include("test_config.php");
          8. JavaScript betöltése
     ======================================== -->
 
-    <script src="../js/form.js"></script>
-
+   <!-- <script src="../js/form.js"></script>
+-->
     
 
     <footer>

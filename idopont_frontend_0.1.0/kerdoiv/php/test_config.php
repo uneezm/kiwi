@@ -2,7 +2,7 @@
 // 4. szemelyes adatok
 $fullName_d = "Kis Pista";
 $motherName_d = "Nagy Krisztina";
-$birthDate_d = "1999.11.09";
+$birthDate_d = "1999-11-09";
 $birthPlace_d = "Kisfalu";
 $taj_d = "007123111";
 $email_d = "kis.pista@gmail.com";
