@@ -34,4 +34,9 @@ $medicationDetail = $_POST[medicationDetail];
 $sensitivity = $_POST["sensitivity"];
 $sensitivityDetail = $_POST["sensitivityDetail"];
 $notes= $_POST["notes"];
+$documents = array($_POST["files"]);
+
+
+
+$validation_result
 ?>
