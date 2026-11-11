@@ -1,4 +1,5 @@
-
+<?php session_start(); ?>
+<?php include("variables.php"); ?>
 <!DOCTYPE html>
 <html lang="hu">
 
@@ -51,10 +52,7 @@
         <!-- ========================================
              3. Betegfelvételi űrlap
         ======================================== -->
-<?php 
-include("test_config.php");
-?>
-     
+
         <form id="patientForm" name="patientForm" action="./validation.php" method="post" target="_blank" autocomplete="off" novalidate>
 
             <!-- ========================================
@@ -76,7 +74,7 @@ include("test_config.php");
                             required
                             maxlength="100"
                             autocomplete="name"
-                            <?php echo "value=\"$fullName_d\"";?>
+                            <?php echo "value=\"" . $_SESSION["fullName"] . "\"";  ?>
                         >
                     </div>
 
@@ -88,7 +86,7 @@ include("test_config.php");
                             name="motherName"
                             required
                             maxlength="100"
-                            <?php echo "value=\"$motherName_d\"";?>
+                            <?php echo "value=\"" . $_SESSION["motherName"] . "\"";  ?>
                         >
                     </div>
 
@@ -100,7 +98,7 @@ include("test_config.php");
                             id="birthDate"
                             name="birthDate"
                             required
-                            <?php echo "value=\"$birthDate_d\"";?>
+                            <?php echo "value=\"" . $_SESSION["birthDate"] . "\"";  ?>
                         >
                     </div>
 
@@ -111,7 +109,7 @@ include("test_config.php");
                             id="birthPlace"
                             name="birthPlace"
                             required
-                            <?php echo "value=\"$birthPlace_d\"";?>
+                            <?php echo "value=\"" . $_SESSION["birthPlace"] . "\"";  ?>
                         >
                     </div>
 
@@ -126,7 +124,7 @@ include("test_config.php");
                             pattern="[0-9]{9}"
                             required
                             placeholder="9 számjegy"
-                            <?php echo "value=\"$taj_d\"";?>
+                            <?php echo "value=\"" . $_SESSION["taj"] . "\"";  ?>
                         >
                     </div>
 
@@ -139,7 +137,7 @@ include("test_config.php");
                             name="email"
                             required
                             autocomplete="email"
-                            <?php echo "value=\"$email_d\"";?>
+                            <?php echo "value=\"" . $_SESSION["email"] . "\"";  ?>
                         >
                     </div>
 
@@ -152,7 +150,7 @@ include("test_config.php");
                             name="phone"
                             required
                             placeholder="+36 30 123 4567"
-                            <?php echo "value=\"$phone_d\"";?>
+                            <?php echo "value=\"" . $_SESSION["phone"] . "\"";  ?>
                         >
                     </div>
 
@@ -163,7 +161,7 @@ include("test_config.php");
                             id="address"
                             name="address"
                             autocomplete="street-address"
-                            <?php echo " value=\"$address_d\""; ?>
+                            <?php echo "value=\"" . $_SESSION["address"] . "\"";  ?>
                         >
                     </div>
 
@@ -175,7 +173,7 @@ include("test_config.php");
                         <input
                             id="temporaryAddress"
                             name="temporaryAddress"
-                            <?php echo " value=\"$temporaryAddress_d\"";?>
+                            <?php echo "value=\"" . $_SESSION["temporaryAddress"] . "\"";  ?>
                         >
                     </div>
 
@@ -189,7 +187,7 @@ include("test_config.php");
                             name="taxNumber"
                             inputmode="numeric"
                             maxlength="10"
-                            <?php echo " value=\"$taxNumber_d\"";?>
+                            <?php echo "value=\"" . $_SESSION["taxNumber"] . "\"";  ?>
                         >
                     </div>
 
@@ -205,7 +203,8 @@ include("test_config.php");
                                     type="radio"
                                     name="returning"
                                     value="yes"
-                                  <?php if ($returning_d== "yes") { echo " checked";}?>
+                                    <?php if ($_SESSION["returning"]==="yes") {echo " checked";} ?>
+                                    
                                 >
                                 Igen
                             </label>
@@ -215,8 +214,8 @@ include("test_config.php");
                                     type="radio"
                                     name="returning"
                                     value="no"
-                                     <?php if ($returning_d== "no") { echo " checked";}?>
-                                    
+                                    <?php if ($_SESSION["returning"]==="no" || $_SESSION["returning"]==="") 
+                                        {echo " checked";} ?>
                                 >
                                 Nem
                             </label>
@@ -250,12 +249,20 @@ include("test_config.php");
                             name="service"
                             required
                         >
-                            <option value="empty">Válasszon...</option>
-                            <option value="allapotfelmeres" checked>Állapotfelmérés</option>
-                            <option value="konzultacio" selected>Fogászati konzultáció</option>
-                            <option value="rontgen">Röntgen</option>
-                            <option value="fogtomes">Fogtömés</option>
-                            <option value="egyeb">Egyéb</option>
+                    
+                       
+                         
+                            <option value="">Válasszon...</option>
+                            <option value="allapotfelmeres" <?php if ($_SESSION["service"]==="allapotfelmeres"){echo " checked";}?>>
+                                Állapotfelmérés</option>
+                            <option value="konzultacio" <?php if ($_SESSION["service"]==="konzultacio"){echo " checked";}?>>
+                                Fogászati konzultáció</option>
+                            <option value="rontgen" <?php if ($_SESSION["service"]==="rontgen"){echo " checked";}?>>
+                                Röntgen</option>
+                            <option value="fogtomes" <?php if ($_SESSION["service"]==="fogtomes"){echo " checked";}?>>
+                                Fogtömés</option>
+                            <option value="egyeb" <?php if ($_SESSION["service"]==="egyeb"){echo " checked";}?>>
+                                Egyéb</option>
                         </select>
                     </div>
 
@@ -274,7 +281,8 @@ include("test_config.php");
                                     name="urgent"
                                     value="yes"
                                     required
-                                      <?php if ($urgent_d== "yes") { echo " checked";}?>
+                                    <?php if ($_SESSION["urgent"]==="yes"){echo " checked";}?>
+                                    
                                 >
                                 Igen
                             </label>
@@ -284,7 +292,7 @@ include("test_config.php");
                                     type="radio"
                                     name="urgent"
                                     value="no"
-                                    <?php if ($urgent_d== "no") { echo " checked";}?>
+                                    <?php if ($_SESSION["urgent"]==="no" || $_SESSION["urgent"]==="" ){echo " checked";}?>
                                 >
                                 Nem
                             </label>
@@ -307,7 +315,12 @@ include("test_config.php");
                             id="urgentDetail"
                             name="urgentDetail"
                             maxlength="500"
-                        ><?php echo "$urgentDetail_d"; ?></textarea>
+                        >
+                          <?php 
+                            $uD=$_SESSION["urgentDetail"]; 
+                            echo  "$uD"; 
+                          ?>
+                        </textarea>
 
                         <p class="muted">
                             A sürgősségi megjelölés nem jelent
@@ -329,7 +342,11 @@ include("test_config.php");
                             required
                             maxlength="1500"
                         >
-                    <?php echo "$reason_d"; ?></textarea>
+                        <?php 
+                            $r=$_SESSION["reason"]; 
+                            echo  "$r"; 
+                          ?>
+                    </textarea>
 
                     </div>
 
@@ -345,7 +362,10 @@ include("test_config.php");
                                     type="checkbox"
                                     name="times"
                                     value="morning"
-                                    checked
+                                    <?php
+                                       if (in_array("morning", $_SESSION["times"])){
+                                          echo " checked";}
+                                    ?>
                                 >
                                 Délelőtt
                             </label>
@@ -355,6 +375,10 @@ include("test_config.php");
                                     type="checkbox"
                                     name="times"
                                     value="afternoon"
+                                    <?php
+                                       if (in_array("afternoon", $_SESSION["times"])){
+                                          echo " checked";}
+                                    ?>
                                 >
                                 Délután
                             </label>
@@ -364,6 +388,10 @@ include("test_config.php");
                                     type="checkbox"
                                     name="times"
                                     value="evening"
+                                    <?php
+                                       if (in_array("evening", $_SESSION["times"])){
+                                          echo " checked";}
+                                    ?>
                                 >
                                 Este
                             </label>
@@ -383,7 +411,12 @@ include("test_config.php");
                             id="availability"
                             name="availability"
                             placeholder="Például: hétfő és szerda megfelelő"
-                        ><?php echo "$availability_d" ?></textarea>
+                        >
+                          <?php 
+                            $a=$_SESSION["availability"]; 
+                            echo  "$a"; 
+                          ?>
+                    </textarea>
 
                     </div>
 
@@ -413,6 +446,7 @@ include("test_config.php");
                                     type="radio"
                                     name="allergy"
                                     value="yes"
+                                    <?php if ($_SESSION["allergy"]==="yes" ){echo " checked";}?>
                                 >
                                 Igen
                             </label>
@@ -423,6 +457,7 @@ include("test_config.php");
                                     name="allergy"
                                     value="no"
                                     checked
+                                     <?php if ($_SESSION["allergy"]==="no" || $_SESSION["urgent"]==="" ){echo " checked";}?>
                                 >
                                 Nem
                             </label>
@@ -442,6 +477,10 @@ include("test_config.php");
                             <input
                                 id="allergyDetail"
                                 name="allergyDetail"
+                                <?php  
+                                  $aD=$_SESSION["allergyDetail"]; 
+                                  echo " value=\"$aD\""; 
+                                ?>
                             >
 
                         </div>
@@ -462,6 +501,7 @@ include("test_config.php");
                                     type="radio"
                                     name="medication"
                                     value="yes"
+                                     <?php if ($_SESSION["medication"]==="yes"){echo " checked";}?>
                                 >
                                 Igen
                             </label>
@@ -471,7 +511,7 @@ include("test_config.php");
                                     type="radio"
                                     name="medication"
                                     value="no"
-                                    checked
+                                     <?php if ($_SESSION["medication"]==="no" || $_SESSION["medication"]==="" ){echo " checked";}?>
                                 >
                                 Nem
                             </label>
@@ -491,6 +531,10 @@ include("test_config.php");
                             <input
                                 id="medicationDetail"
                                 name="medicationDetail"
+                                 <?php  
+                                  $mD=$_SESSION["medicationDetail"]; 
+                                  echo " value=\"$mD\""; 
+                                ?>
                             >
 
                         </div>
@@ -511,6 +555,7 @@ include("test_config.php");
                                     type="radio"
                                     name="sensitivity"
                                     value="yes"
+                                    <?php if ($_SESSION["sensitivity"]==="yes"){echo " checked";}?>
                                 >
                                 Igen
                             </label>
@@ -520,7 +565,7 @@ include("test_config.php");
                                     type="radio"
                                     name="sensitivity"
                                     value="no"
-                                    checked
+                                    <?php if ($_SESSION["sensitivity"]==="no" || $_SESSION["sensitivity"]==="" ){echo " checked";}?>
                                 >
                                 Nem
                             </label>
@@ -540,6 +585,10 @@ include("test_config.php");
                             <input
                                 id="sensitivityDetail"
                                 name="sensitivityDetail"
+                                <?php  
+                                  $sD=$_SESSION["sensitivityDetail"]; 
+                                  echo " value=\"$sD\""; 
+                                ?>
                             >
 
                         </div>
@@ -556,7 +605,12 @@ include("test_config.php");
                         <textarea
                             id="notes"
                             name="notes"
-                        ><?php echo "$notes_d" ?></textarea>
+                        >
+                          <?php 
+                            $n=$_SESSION["notes"]; 
+                            echo  "$n"; 
+                          ?>
+                    </textarea>
 
                     </div>
 
@@ -660,7 +714,7 @@ include("test_config.php");
          8. JavaScript betöltése
     ======================================== -->
 
-   <!-- <script src="../js/form.js"></script>
+  <!--  <script src="../js/form.js"></script>
 -->
     
 

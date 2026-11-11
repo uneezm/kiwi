@@ -1,4 +1,7 @@
-
+<?php
+// uj session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="hu">
 
@@ -52,7 +55,7 @@
              3. Betegfelvételi űrlap
         ======================================== -->
 
-        <form id="patientForm" name="patientForm" action="./validation.php" method="post" target="_blank" autocomplete="off" novalidate>
+        <form id="patientForm"  action="confirmation.php" method="post" target="_blank" novalidate>
 
             <!-- ========================================
                  4. Személyes adatok
@@ -73,6 +76,7 @@
                             required
                             maxlength="100"
                             autocomplete="name"
+                            
                         >
                     </div>
 
@@ -641,8 +645,8 @@
          8. JavaScript betöltése
     ======================================== -->
 
-  <!--  <script src="../js/form.js"></script>
--->
+    <script src="../js/form.js"></script>
+
     
 
     <footer>
