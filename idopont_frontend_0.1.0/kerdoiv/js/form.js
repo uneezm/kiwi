@@ -34,7 +34,79 @@ function conditional(name, wrap, field) {
 }
 
 /* ========================================
-   3. Feltételes mezők frissítése
+   3. Születési dátum: éééé.hh.nn
+======================================== */
+
+const birthInput = document.getElementById('birthDate');
+
+// Hibaüzenet a mező alatt
+const birthErr = document.createElement('p');
+birthErr.className = 'error';
+birthInput.after(birthErr);
+
+// Hibaüzenetet ad vissza, vagy üres szöveget, ha a dátum rendben van
+function birthError(v) {
+
+    const m = /^(\d{4})\.(\d{2})\.(\d{2})$/.exec(v);
+
+    if (!m) return 'Adja meg a dátumot éééé.hh.nn formában.';
+
+    const y = +m[1], mo = +m[2], d = +m[3];
+    const thisYear = new Date().getFullYear();
+
+    if (y < 1900) return 'A születési év nem lehet 1900 előtti.';
+    if (y > thisYear) return `A születési év nem lehet ${thisYear} utáni.`;
+
+    // Létezik-e a dátum (pl. 2001.02.30 nem)
+    const dt = new Date(y, mo - 1, d);
+    if (
+        dt.getFullYear() !== y ||
+        dt.getMonth() !== mo - 1 ||
+        dt.getDate() !== d
+    ) return 'Nem létező dátum.';
+
+    if (dt > new Date()) return 'A születési dátum nem lehet jövőbeli.';
+
+    return '';
+}
+
+birthInput.addEventListener('input', e => {
+
+    // Csak számjegyek, legfeljebb 8 db (4 év + 2 hónap + 2 nap)
+    const d = birthInput.value.replace(/\D/g, '').slice(0, 8);
+
+    // Törlésnél nem tesszük vissza a pontot, különben nem lehetne törölni
+    const deleting = e.inputType && e.inputType.startsWith('delete');
+
+    // Összerakás: éééé. hh. nn
+    let out = d.slice(0, 4);
+    if (d.length >= 4 && !(deleting && d.length === 4)) out += '.';
+    if (d.length > 4) out += d.slice(4, 6);
+    if (d.length >= 6 && !(deleting && d.length === 6)) out += '.';
+    if (d.length > 6) out += d.slice(6, 8);
+    if (d.length < 4) out = d;
+
+    birthInput.value = out;
+
+    // Az év már a 4. számjegy után ellenőrizhető
+    let err = '';
+    if (d.length >= 4) {
+        const y = +d.slice(0, 4);
+        const thisYear = new Date().getFullYear();
+
+        if (y < 1900) err = 'A születési év nem lehet 1900 előtti.';
+        else if (y > thisYear) err = `A születési év nem lehet ${thisYear} utáni.`;
+    }
+
+    // A teljes dátumot akkor ellenőrizzük, ha mind a 8 számjegy megvan
+    if (!err && d.length === 8) err = birthError(out);
+
+    birthErr.textContent = err;
+    birthInput.setCustomValidity(err);
+});
+
+/* ========================================
+   4. Feltételes mezők frissítése
 ======================================== */
 
 function update() {
@@ -69,7 +141,7 @@ function update() {
 }
 
 /* ========================================
-   4. Űrlapváltozás figyelése
+   5. Űrlapváltozás figyelése
 ======================================== */
 
 // Bármely mező megváltozásakor frissítjük
@@ -77,7 +149,7 @@ function update() {
 form.addEventListener('change', update);
 
 /* ========================================
-   5. Űrlap alaphelyzetbe állítása
+   6. Űrlap alaphelyzetbe állítása
 ======================================== */
 
 form.addEventListener('reset', () => {
@@ -94,7 +166,7 @@ form.addEventListener('reset', () => {
 });
 
 /* ========================================
-   6. Űrlap beküldésének kezelése
+   7. Űrlap beküldésének kezelése
 ======================================== */
 
 form.addEventListener('submit', e => {
@@ -106,24 +178,15 @@ form.addEventListener('submit', e => {
     msg.textContent = '';
 
     /* ========================================
-       7. Születési dátum ellenőrzése
+       8. Születési dátum ellenőrzése
     ======================================== */
 
-    const birth = document.getElementById('birthDate');
-
-    if (
-        birth.value &&
-        birth.value > new Date().toISOString().slice(0, 10)
-    ) {
-        birth.setCustomValidity(
-            'A születési dátum nem lehet jövőbeli.'
-        );
-    } else {
-        birth.setCustomValidity('');
-    }
+    const err = birthError(birthInput.value);
+    birthInput.setCustomValidity(err);
+    birthErr.textContent = err;
 
     /* ========================================
-       8. Telefonszám ellenőrzése
+       9. Telefonszám ellenőrzése
     ======================================== */
 
     const phone = document.getElementById('phone');
@@ -136,7 +199,7 @@ form.addEventListener('submit', e => {
     );
 
     /* ========================================
-       9. TAJ-szám ellenőrzése
+       10. TAJ-szám ellenőrzése
     ======================================== */
 
     const taj = document.getElementById('taj');
@@ -148,7 +211,7 @@ form.addEventListener('submit', e => {
     );
 
     /* ========================================
-       10. Feltöltött dokumentumok ellenőrzése
+       11. Feltöltött dokumentumok ellenőrzése
     ======================================== */
 
     // Feltöltött fájlok listája
@@ -173,7 +236,7 @@ form.addEventListener('submit', e => {
     }
 
     /* ========================================
-       11. Teljes űrlap ellenőrzése
+       12. Teljes űrlap ellenőrzése
     ======================================== */
 
     if (!form.checkValidity()) {
@@ -192,7 +255,7 @@ form.addEventListener('submit', e => {
     }
 
     /* ========================================
-       12. Sikeres kliensoldali ellenőrzés
+       13. Sikeres kliensoldali ellenőrzés
     ======================================== */
 
     msg.innerHTML =
@@ -210,7 +273,7 @@ form.addEventListener('submit', e => {
 });
 
 /* ========================================
-   13. Kezdeti állapot beállítása
+   14. Kezdeti állapot beállítása
 ======================================== */
 
 update();

@@ -91,10 +91,13 @@
                     <div>
                         <label for="birthDate">Születési dátum *</label>
                         <input
-                            type="date"
                             id="birthDate"
                             name="birthDate"
                             required
+                            inputmode="numeric"
+                            maxlength="10"
+                            autocomplete="bday"
+                            placeholder="éééé.hh.nn"
                         >
                     </div>
 
